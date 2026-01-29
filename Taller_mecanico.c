@@ -31,15 +31,9 @@ int main()
     char B1[] = "Juan Villoro ";
     char B2[] = "Carlos Fuentes ";
 
-    char M001[] = "(M001)";
-    char M002[] = "(M002)";
-    char M003[] = "(M003)";
-    char M004[] = "(M004)";
-    char M005[] = "(M005)";
-    char M006[] = "(M006)";
+   
 
     char empleado_asignado[50];
-    char empleado_clave[20];
     char fechaingreso[15];
     char fechaentrega[15];
     int dia, mes, anio;
@@ -117,20 +111,6 @@ int main()
 
     printf("Clave de empleado (M001, M002, M003, M004, M005, M006): ");
     scanf("%s", claveempleado);
-    if (strcmp(claveempleado, "M001") == 0)
-        strcpy(empleado_clave, M001);
-    else if (strcmp(claveempleado, "M002") == 0)
-        strcpy(empleado_clave, M002);
-    else if (strcmp(claveempleado, "M003") == 0)
-        strcpy(empleado_clave, M003);
-    else if (strcmp(claveempleado, "M004") == 0)
-        strcpy(empleado_clave, M004);
-    else if (strcmp(claveempleado, "M005") == 0)
-        strcpy(empleado_clave, M005);
-    else if (strcmp(claveempleado, "M006") == 0)
-        strcpy(empleado_clave, M006);
-    else
-        strcpy(empleado_clave, "Clave invalida");
 
     printf("Nombre del encargado: %s\n", encargado);
 
@@ -166,7 +146,7 @@ int main()
     printf("Fecha de ingreso: %s\n", fechaingreso);
     printf("Vehiculo: %s %s\n", marcavehiculo, modelovehiculo);
     printf("Espacio asignado: %s\n", registroespacio);
-    printf("Empleado asignado: %s %s\n", empleado_asignado, empleado_clave);
+    printf("Empleado asignado: %s (%s)\n", empleado_asignado, claveempleado);
     printf("Nombre encargado: %s\n", encargado);
     printf("Fecha de entrega:%s\n", fechaentrega);
 
