@@ -27,7 +27,7 @@ int main()
     char A1[] = "Juan Rulfo ";
     char A2[] = "Octavio Paz ";
     char A3[] = "Gabriel Marquez ";
-    char A4[] = "Paulo Cohelo ";
+    char A4[] = "Paulo Coelho ";
     char B1[] = "Juan Villoro ";
     char B2[] = "Carlos Fuentes ";
 
