@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
+
 
 int main() {
     int opcion;
@@ -17,12 +17,13 @@ int main() {
         printf("5. Bebida energetica - $30.00\n");
         printf("6. Salir\n");
 
+        // Encas de seleccion incorrecta
         printf("Seleccione una opcion: ");
         scanf("%d", &opcion);
 
         if (opcion < 1 || opcion > 6) {
             printf("Seleccion incorrecta, intente de nuevo (1 al 6).\n");
-            continue; // regresa al menu
+            continue; 
         }
 
         if (opcion == 6) {
@@ -96,4 +97,5 @@ int main() {
     } while (1);
 
     return 0;
+
 }
