@@ -1,51 +1,93 @@
-[Project]
-filename=calculo.c.dev
-name=calculo.c
-Type=1
-Ver=2
-ObjFiles=
-Includes=
-Libs=
-PrivateResource=
-ResourceIncludes=
-MakeIncludes=
-Compiler=
-CppCompiler=
-Linker=
-IsCpp=0
-Icon=
-ExeOutput=
-ObjectOutput=
-LogOutput=
-LogOutputEnabled=0
-OverrideOutput=0
-OverrideOutputName=
-HostApplication=
-UseCustomMakefile=0
-CustomMakefile=
-CommandLine=
-Folders=
-IncludeVersionInfo=0
-SupportXPThemes=0
-CompilerSet=0
-CompilerSettings=0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;16;0;0;0
+#include <stdio.h>
+#include <string.h>
 
-[VersionInfo]
-Major=1
-Minor=0
-Release=0
-Build=0
-LanguageID=1033
-CharsetID=1252
-CompanyName=
-FileVersion=
-FileDescription=Developed using the Dev-C++ IDE
-InternalName=
-LegalCopyright=
-LegalTrademarks=
-OriginalFilename=
-ProductName=
-ProductVersion=
-AutoIncBuildNr=0
-SyncProduct=1
+const float TARIFA_REDUCIDA = 2.10;
+const float TARIFA_INTERMEDIA = 2.94;
+const float TARIFA_ALTA = 3.65;
+
+int main()
+{
+
+    printf("----CALCULO DE TARIFA ELECTRICA ESCALONADA----\n");
+    printf("==============================================\n");
+
+    char Estudiante[] = "Erik Ridriguez Torres";
+    char Matricula[] = "ES261129259";
+    char grupo[] = "DS-DFPR-2601-B1-023";
+
+    printf("Estudiante: %s\n", Estudiante);
+    printf("Matricula: %s\n", Matricula);
+    printf("Grupo: %s\n", grupo);
+    printf("==============================================\n");
+
+    int opcion;
+    char nombre_cliente[80];
+
+    do
+    {
+        printf("Menu de opciones\n");
+        printf("1. Calculo de tarifa electrica\n");
+        printf("2. Salir\n");
+        printf("Seleccione una opcion: ");
+        scanf("%d", &opcion);
+
+        if (opcion == 2)
+        {
+            printf("Saliendo del programa. Gracias por usar el calculo de tarifa electrica.\n");
+            break;
+        }
+
+        if (opcion == 1)
+        {
+            while (getchar() != '\n')
+                ;
+
+            printf("Ingrese el nombre del cliente: ");
+            fgets(nombre_cliente, 80, stdin);
+        }
+
+        int consumo;
+        printf("Ingrese el consumo en kWh: ");
+        if (scanf("%d", &consumo) != 1 || consumo < 0)
+        {
+            printf("Consumo invalido. Debe ser un numero entero no negativo.\n");
+            continue;
+        }
+
+        float tarifa;
+        const char *tipo;
+
+        if (consumo <= 150)
+        {
+            tarifa = TARIFA_REDUCIDA;
+            tipo = "REDUCIDA";
+            printf("Se aplica TARIFA REDUCIDA DE $%.2f por kWh.\n", tarifa);
+        }
+        else if (consumo <= 300)
+        {
+            tarifa = TARIFA_INTERMEDIA;
+            tipo = "INTERMEDIA";
+            printf("Se aplica TARIFA INTERMEDIA DE $%.2f por kWh.\n", tarifa);
+        }
+        else
+        {
+            tarifa = TARIFA_ALTA;
+            tipo = "ALTA";
+            printf("Se aplica TARIFA ALTA DE $%.2f por kWh.\n", tarifa);
+        }
+
+        float monto = consumo * tarifa;
+
+        printf("\n----- FACTURA GENERADA -----\n");
+        printf("Cliente: %s", nombre_cliente);
+        printf("Consumo: %d kWh\n", consumo);
+        printf("Tarifa: %s\n", tipo);
+        printf("TOTAL A PAGAR: $%.2f\n", monto);
+        printf("-------------------\n");
+
+      
+    } while (opcion != 2);
+
+    return 0;
+}
 
